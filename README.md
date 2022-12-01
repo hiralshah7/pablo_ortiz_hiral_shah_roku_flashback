@@ -1,6 +1,15 @@
 # Roku Flashback
 
-Roku Flashback is a clone web app of the popular streaming service Roku. The app provides users with access to a library of classic films and television shows from the past. 
+Roku Flashback is a clone web app of the popular streaming service Roku. The app provides users with access to a library of classic films and television shows from the past.
+
+## For Checking Prototyping & Videos:
+
+Simply Click on this link:
+
+* https://xd.adobe.com/view/64652f5e-9cf0-46cc-9412-29b6df81daca-3136/ [ For Xd Link ]
+* https://drive.google.com/drive/folders/1Wop0vdCeCE4mMw7kGzEIN9kk0qv_fVqR?usp=share_link [ For Goggle Drive ]
+
+and you will be able to see all the design work.
 
 ## Features
 
