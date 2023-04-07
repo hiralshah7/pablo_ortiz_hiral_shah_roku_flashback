@@ -7,8 +7,8 @@ export default {
     <div @click="NavToHome" class="bg-info rounded-circle">
         <div class="card-body text-center">
             <img :src='"images/" + user.avatar' class="image_avatar" alt="user avatar">
-            <p>{{ user.username }}</p>
         </div>
+        <p class="pop1">{{ user.username }}</p>
     </div>
     `,
 

@@ -8,7 +8,9 @@ export default {
         <!-- <h1> The All Users Component </h1> -->
         <h2 class="user"> Who's using Roku? </h2>
 
+        <div class="profileLock">
         <user @setcurrentuser="this.$emit('setactive', user)" v-for="user in users" :user="user"></user>
+        </div>
     </section>
     `,
 
