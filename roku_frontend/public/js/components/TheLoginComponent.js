@@ -24,12 +24,9 @@ export default {
         >Go!
         </button>
 
-        <button v-if="signup"
-            @click="trySignUp"
-            type="submit" 
-            class="btn btn-primary login-submit"
-        >Sign Up for Roku
-        </button>
+       <!-- sign up button -->
+        <button v-on:click="trySignUp" class="btn btn-primary login-submit">Sign Up</button>
+
     </section>
     `,
 
@@ -42,9 +39,11 @@ export default {
 
     methods: {
         trySignUp(){
+            
             debugger;
-        },
 
+
+        },
         tryLogin() {
             // debugger;
             // sanitize our inputs, make sure they're not empty ect "       "
@@ -71,12 +70,13 @@ export default {
             }
 
 
-
+            // for login, we need to send the user's credentials to the server
             fetch('/ums/login', {
                 method: "POST",
                 headers:{
                     'Accept': 'application/json, text/plain, */*',
                     'Content-type': 'application/json'
+
                 },
                 body: JSON.stringify(userData)
             })
