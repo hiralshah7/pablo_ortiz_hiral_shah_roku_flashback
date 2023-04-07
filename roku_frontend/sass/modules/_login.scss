@@ -1,20 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
-
-
-
-
-.avatar {
-    display: inline-block;
-    margin: 1em;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+.container {
     
+    background-color: #BF81E3;
+    height: 80vh;
+    width: 30vw;
+    margin: 0 auto;
+    margin-top: 10vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10vh;
 }
+
+.loginh1 {
+    font-size:1.5rem;
+    font-family: var(--font1);
+    font-weight: 600;
+    margin-bottom: 0;
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.jumbotron11 {
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.lead {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-left: 0;
+    margin-bottom: 0;
+    color: white;
+
+}
+
 
 .field-error {
     border: 2px solid red;
 }
 
+.login-submit{
+    background-color: #E6B600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+
+        // on hover
+        &:hover{
+            background-color: #F39200;
+            color: white;
+            cursor: pointer;
+            // zoom in
+            transform: scale(1.2);
+            transition: all 0.2s ease-in-out;
+        }
+}
+
+.login-submit11 {
+    display: flex;
+    gap: 20px;
+}
+
+.label1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: 0;
+    margin-bottom: 0;
+    color: white;
+}
+
+.log-in {
+    display: flex;
+    flex-direction: column;
+    // space-between
+    justify-content: space-around;
+    justify-content: left;
+    align-items: left;
+    gap: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+}
 
 
+
+
+// for mobile view
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90vw;
+        height: 70vh;
+    }
+}
+
+// for tablet 
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        width: 80vw;
+        height: 40vh;
+    }
+}

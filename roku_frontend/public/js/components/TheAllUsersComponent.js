@@ -6,7 +6,7 @@ export default {
     template: `
     <section class="users-container">
         <!-- <h1> The All Users Component </h1> -->
-        <h2> Who's using Roku? </h2>
+        <h2 class="user"> Who's using Roku? </h2>
 
         <user @setcurrentuser="this.$emit('setactive', user)" v-for="user in users" :user="user"></user>
     </section>

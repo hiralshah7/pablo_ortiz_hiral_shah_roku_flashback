@@ -4,9 +4,9 @@ export default {
     props: ['user'],
 
     template: `
-    <div @click="NavToHome" class="card rounded avatar">
+    <div @click="NavToHome" class="bg-info rounded-circle">
         <div class="card-body text-center">
-            <img :src='"images/" + user.avatar' class="rounded-circle img-fluid" alt="user avatar">
+            <img :src='"images/" + user.avatar' class="image_avatar" alt="user avatar">
             <p>{{ user.username }}</p>
         </div>
     </div>
