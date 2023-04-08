@@ -9,20 +9,38 @@ export default {
    <!--  creating three button one for music, one for movies and one for tv shows -->
    <!-- load the content of the button when the user clicks on it --> 
         <div class="main_entertainment">
-          <button class="btn_entertainment" @click="loadKidsMovies">Movies</button>
-          <button class="btn_entertainment" @click="loadKidsMusic">Music</button>
-          <button class="btn_entertainment" @click="loadKidsTv">Tv Shows</button>
+          <button class="btn_entertainment" @click="loadKidsMovies">
+          <!-- ion icon for movies -->
+          <ion-icon name="film-outline"></ion-icon>
+          Movies</button>
+          <button class="btn_entertainment" @click="loadKidsMusic">
+          <!-- ion icon for music -->
+          <ion-icon name="musical-notes-outline"></ion-icon>
+          Music</button>
+          <button class="btn_entertainment" @click="loadKidsTv">
+          <!-- ion icon for tv shows -->
+          <ion-icon name="tv-outline"></ion-icon>
+          Tv Shows</button>
         </div>
 
     <section class="movie_container" v-show="showVideo1">
+    <div class="movieskid">
       <ul class="moviekid">
         <li v-for="movie in movies" :key="movie.id">
-          <img :src="movie.image" :alt="movie.title" @click="playVideo(movie)">
-          <h3>{{ movie.title }}</h3>
-          <p>Year: {{ movie.year }}</p>
-          <p>Rating: {{ movie.imDbRating }}</p>
+          <img class="layer" :src="movie.image" :alt="movie.title" @click="playVideo(movie)">
+          <h3 class="titlem">{{ movie.title }}</h3>
+          <!-- on hover show the year and rating -->
+        <div class="movie_info">
+     
+          <p class="block">{{ movie.title }}<p>
+          <p class="block">Year: {{ movie.description }}</p>
+          <p class="block">Rating: {{ movie.imDbRating }}</p>
+          <ion-icon name="play-circle-outline" @click="playVideo(movie)"></ion-icon>
+        
+        </div>
         </li>
       </ul>
+    </div>
       <!-- open the video when the user clicks on the image -->
       <div class="video_container" v-show="showVideo">
         <video :src="selectedMovie.video" controls autoplay></video>
@@ -52,54 +70,39 @@ export default {
     `,
 
     data() {
-        return {
-          movies: [],
-          showVideo: false,
-          selectedMovie: {},
-          selectedMusic: {},
-          selectedTvshow: {},
-          showMusic: false,
-          showTv: false,
-          showVideo1: true,
-
-
-
-        };
-
-        
-
+      return {
+        movies: [],
+        showVideo: false,
+        selectedMovie: {},
+        selectedMusic: {},
+        selectedTvshow: {},
+        showMusic: false,
+        showTv: false,
+        showVideo1: true,
+      };
     },
 
     created() {
       // Fetching data for Kids Movies
-      const movieOptions = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": "6325459dcfmsh01df99951fe2399p15d8ccjsndfd3ff8f51b2",
-          "X-RapidAPI-Host": "imdb-api.com"
-        }
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
       };
   
-      fetch(
-        "https://imdb-api.com/en/API/Keyword/k_484b899g/children",
-        movieOptions
-      )
+      fetch('https://imdb-api.com/API/AdvancedSearch/k_mb5kczkx?title_type=feature,tv_movie,video&genres=animation,comedy&colors=color', requestOptions)
         .then(response => response.json())
         .then(result => {
-          this.movies = result.items;
+          this.movies = result['results'];
         })
-        .catch(error => console.log("error", error));
-  
+        .catch(error => console.log('error', error));
     },
 
-    // fetch data for kids music
 
-
-    // fetch data for kids tv shows
-
-
+       
 
     methods: {
+      
+
       playVideo(movie) {
         this.selectedMovie = movie;
         this.showVideo = true;

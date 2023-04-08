@@ -4,9 +4,6 @@ export default {
         `<section class="container">
         <div class="jumbotron11">
             <h1 class="loginh1">Welcome to Flashblack!</h1>
-            <p class="lead">
-            Before revisiting your favourite movies, tv shows or music from yesteryear, please log in with a valid username and password.
-            </p>
         </div>
 
         <section class="log-in">

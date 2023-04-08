@@ -18,6 +18,10 @@
    
 }
 
+.rokulogo {
+    margin-left: 20px;
+}
+
 .buttons_ul ion-icon {
     font-size: 60px;
     font-weight: 600;
@@ -29,10 +33,8 @@
         &:hover{
             color: #BF81E3;
             cursor: pointer;
+            // zoom in
             transform: scale(1.2);
             transition: all 0.2s ease-in-out;
-            filter: drop-shadow(0 0 0.75rem #BF81E3);
-            
-           
         }
 }
