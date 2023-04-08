@@ -9,6 +9,7 @@ export default {
    <!--  creating three button one for music, one for movies and one for tv shows -->
    <!-- load the content of the button when the user clicks on it --> 
         <div class="main_entertainment">
+        <!-- welcome message with the user name -->
           <button class="btn_entertainment" @click="loadKidsMovies">
           <!-- ion icon for movies -->
           <ion-icon name="film-outline"></ion-icon>
@@ -30,7 +31,7 @@ export default {
           <img class="layer" :src="movie.image" :alt="movie.title" @click="playVideo(movie)">
           <h3 class="titlem">{{ movie.title }}</h3>
           <!-- on hover show the year and rating -->
-        <div class="movie_info">
+        <div class="movie_info"  @click="playVideo(movie)">
      
           <p class="block">{{ movie.title }}<p>
           <p class="block">Year: {{ movie.description }}</p>
@@ -42,18 +43,50 @@ export default {
       </ul>
     </div>
       <!-- open the video when the user clicks on the image -->
+
       <div class="video_container" v-show="showVideo">
-        <video :src="selectedMovie.video" controls autoplay></video>
-        <h2>{{ selectedMovie.title }}</h2>
-              <p>Year: {{ selectedMovie.year }}</p>
-              <p>Rating: {{ selectedMovie.imDbRating }}</p>
-        <button @click="showVideo = false">Close</button>
-      </div>
+
+      <!-- linking video from the public folder -->
+    <div class="heading_video">
+      <h2 class="movtit">{{ selectedMovie.title }}</h2>
+      <!-- ion icon for close -->
+      <!-- close button -->
+      <ion-icon name="close-circle-outline" @click="closeVideo"></ion-icon>
+    </div>
+  
+
+
+  <div class="main_video">
+    <div class="video">
+      <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
+    </div>
+
+    <div class="video_info">
+              <!-- year -->
+              <p class="mainb">
+              <h2 class="p1">Year:</h2> {{ selectedMovie.description }}</p>
+              <!-- runtime -->
+              <p class="mainb">
+              <h2 class="p1">Runtime:</h2> {{ selectedMovie.runtimeStr }}</p>
+              <!-- genre -->
+              <p class="mainb"><h2 class="p1">Genre:</h2>{{ selectedMovie.genres }}</p>
+              <!-- plot -->
+              <p class="mainb"> <h2 class="p1">Plot:</h2>{{ selectedMovie.plot }}</p>
+              <!-- stars -->
+              <p class="mainb"> <h2 class="p1">Stars:</h2> {{ selectedMovie.stars }}</p>
+              <!-- rating -->
+              <p class="mainb"> <h2 class="p1">Rating:</h2> {{ selectedMovie.imDbRating }}</p>
+    </div>
+  </div>
+</div>
   </section>
 
-  <!-- music for kids -->
-  <section v-show="showMusic" class="music_container">
-      <h2 class="music_title">Music</h2>
+  
+
+
+
+
+
   </section>
 
 
@@ -134,7 +167,17 @@ export default {
         this.showMusic = false;
         this.showTv = true;
         console.log ( "tv shows are loaded ");
+      },
+
+      closeVideo() {
+        this.showVideo = false;
+        // pause the video when the user closes the video box
+
+        console.log ( "video box is closed ");
+
+
       }
+
 
     }
   };
