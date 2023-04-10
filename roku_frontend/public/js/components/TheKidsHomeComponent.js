@@ -9,96 +9,129 @@ export default {
    <!--  creating three button one for music, one for movies and one for tv shows -->
    <!-- load the content of the button when the user clicks on it --> 
         <div class="main_entertainment">
-        <!-- welcome message with the user name -->
+
           <button class="btn_entertainment" @click="loadKidsMovies">
-          <!-- ion icon for movies -->
-          <ion-icon name="film-outline"></ion-icon>
-          Movies</button>
-          <button class="btn_entertainment" @click="loadKidsMusic">
-          <!-- ion icon for music -->
-          <ion-icon name="musical-notes-outline"></ion-icon>
-          Music</button>
+            <ion-icon name="film-outline"></ion-icon>Movies</button>
+          
+          <button class="btn_entertainment" @click="loadKidsMusic"> 
+            <ion-icon name="musical-notes-outline"></ion-icon>Music</button>
+          
           <button class="btn_entertainment" @click="loadKidsTv">
-          <!-- ion icon for tv shows -->
-          <ion-icon name="tv-outline"></ion-icon>
-          Tv Shows</button>
+          <ion-icon name="tv-outline"></ion-icon>Tv Shows</button>
         </div>
 
-    <section class="movie_container" v-show="showVideo1">
+        <!-- movies for kids -->
+
+  <section class="movie_container" v-show="showVideo1">
     <div class="movieskid">
       <ul class="moviekid">
         <li v-for="movie in movies" :key="movie.id">
           <img class="layer" :src="movie.image" :alt="movie.title" @click="playVideo(movie)">
           <h3 class="titlem">{{ movie.title }}</h3>
           <!-- on hover show the year and rating -->
-        <div class="movie_info"  @click="playVideo(movie)">
-     
-          <p class="block">{{ movie.title }}<p>
-          <p class="block">Year: {{ movie.description }}</p>
-          <p class="block">Rating: {{ movie.imDbRating }}</p>
-          <ion-icon name="play-circle-outline" @click="playVideo(movie)"></ion-icon>
-        
-        </div>
+          <div class="movie_info"  @click="playVideo(movie)">
+            <p class="block">{{ movie.title }}<p>
+            <p class="block">Year: {{ movie.description }}</p>
+            <p class="block">Rating: {{ movie.imDbRating }}</p>
+            <ion-icon name="play-circle-outline" @click="playVideo(movie)"></ion-icon>
+          </div>
         </li>
       </ul>
     </div>
-      <!-- open the video when the user clicks on the image -->
+
+    <!-- open the video when the user clicks on the image -->
 
       <div class="video_container" v-show="showVideo">
-
-      <!-- linking video from the public folder -->
-    <div class="heading_video">
-      <h2 class="movtit">{{ selectedMovie.title }}</h2>
-      <!-- ion icon for close -->
-      <!-- close button -->
-      <ion-icon name="close-circle-outline" @click="closeVideo"></ion-icon>
-    </div>
-  
-
-
-  <div class="main_video">
-    <div class="video">
-      <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
-    </div>
+        <div class="heading_video">
+          <h2 class="movtit">{{ selectedMovie.title }}</h2>
+            <ion-icon name="close-circle-outline" @click="closeVideo"></ion-icon>
+      </div>
+      
+      <div class="main_video">
+        <div class="video">
+          <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
+        </div>
+      </div>
 
     <div class="video_info">
-              <!-- year -->
-              <p class="mainb">
-              <h2 class="p1">Year:</h2> {{ selectedMovie.description }}</p>
-              <!-- runtime -->
-              <p class="mainb">
-              <h2 class="p1">Runtime:</h2> {{ selectedMovie.runtimeStr }}</p>
-              <!-- genre -->
+      <p class="mainb">
+        <h2 class="p1">Year:</h2> {{ selectedMovie.description }}</p>
+          <p class="mainb">
+            <h2 class="p1">Runtime:</h2> {{ selectedMovie.runtimeStr }}</h2>
               <p class="mainb"><h2 class="p1">Genre:</h2>{{ selectedMovie.genres }}</p>
-              <!-- plot -->
-              <p class="mainb"> <h2 class="p1">Plot:</h2>{{ selectedMovie.plot }}</p>
-              <!-- stars -->
-              <p class="mainb"> <h2 class="p1">Stars:</h2> {{ selectedMovie.stars }}</p>
-              <!-- rating -->
-              <p class="mainb"> <h2 class="p1">Rating:</h2> {{ selectedMovie.imDbRating }}</p>
+              <p class="mainb"><h2 class="p1">Plot:</h2>{{ selectedMovie.plot }}</p>
+              <p class="mainb"><h2 class="p1">Stars:</h2> {{ selectedMovie.stars }}</p>
+              <p class="mainb"><h2 class="p1">Rating:</h2> {{ selectedMovie.imDbRating }}</p>
+      </p>
     </div>
-  </div>
 </div>
-  </section>
+</section>
 
-  
-
-
+  <!-- music for kids -->
 
 
+  <section v-show="showMusic" class="movieskid music_container">
+    <ul class="moviekid album-covers">
+        <li v-for="track in tracks" :key="track.id">
+          <img class="layer" :src="track.album.cover[0].url" :alt="alb" @click="playTrack(track)">
+            <h3 class="titlem">{{ track.name }}</h3>
 
-  </section>
+              <!-- on hover show the artist name and release date -->
+                <div class="movie_info"  @click="playTrack(track)">
+                    <p class="block">{{ track.album.name }}</p>
+                        <ion-icon name="play-circle-outline" @click="playTrack(track)"></ion-icon>
+                </div>
+        </li>
+    </ul>
+</section>
+
+
 
 
   <!-- tv shows for kids -->
-  <section v-show="showTv" class="tv_container">
-      <h2 class="tv_title">Tv Shows</h2>
-  </section>
-
-
-
-
   
+  <section v-show="showTv" class="movieskid tv_container">
+    <div class="tvshows">
+      <div class="movieskid">
+          <ul class="moviekid">
+            <li v-for="tvshow in tvshows" :key="tvshow.id">
+              <img class="layer" :src="tvshow.image" :alt="tvshow.title"  @click="playVideo(movie)">
+                <h3 class="titlem">{{ tvshow.title }}</h3>
+
+
+                <!-- on hover show the year and rating -->
+                    <div class="movie_info" @click="playVideo(movie)">
+                      <p class="block">{{ tvshow.title }}</p>
+                      <p class="block">Year: {{ tvshow.description }}</p>
+                      <p class="block">Rating: {{ tvshow.imDbRating }}</p>
+                      <ion-icon name="play-circle-outline"  @click="playVideo(movie)"></ion-icon>
+                    </div>
+              </li>
+          </ul>
+    </div>
+
+        <!-- open the video when the user clicks on the image -->
+
+                  <div class="video_container" v-show="showVideo">
+                      <div class="heading_video">
+                    <h2 class="movtit">{{ selectedTvshow.title }}</h2>
+                        <ion-icon name="close-circle-outline" @click="closeVideo"></ion-icon>
+                </div>
+                <div class="main_video">
+                  <div class="video">
+                    <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
+                </div>
+            </div>
+              <div class="video_info">
+                <p class="mainb"><h2 class="p1">Year:</h2> {{ selectedTvshow.description }}</p>
+                <p class="mainb"><h2 class="p1">Runtime:</h2> {{ selectedTvshow.runtimeStr }}</p>
+                <p class="mainb"><h2 class="p1">Genre:</h2>{{ selectedTvshow.genres }}</p>
+                <p class="mainb"><h2 class="p1">Plot:</h2>{{ selectedTvshow.plot }}</p>
+                <p class="mainb"><h2 class="p1">Stars:</h2> {{ selectedTvshow.stars }}</p>
+                <p class="mainb"><h2 class="p1">Rating:</h2> {{ selectedTvshow.imDbRating }}</p>
+              </div>
+            </div>
+  </section>
 
     `,
 
@@ -112,6 +145,12 @@ export default {
         showMusic: false,
         showTv: false,
         showVideo1: true,
+        track: {},
+        shows: [],
+        selectedShow: {},
+        tvShows: [],
+
+
       };
     },
 
@@ -128,10 +167,57 @@ export default {
           this.movies = result['results'];
         })
         .catch(error => console.log('error', error));
+
+    // music
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '6325459dcfmsh01df99951fe2399p15d8ccjsndfd3ff8f51b2',
+        'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
+      }
+    };
+
+    fetch('https://spotify-scraper.p.rapidapi.com/v1/search?term=kids&type=track', options)
+      .then(response => response.json())
+      .then(data => {
+        this.tracks = data.tracks.items.slice(0, 100);
+      })
+      .catch(err => console.error(err));
+
+    // tv shows
+   
+    // fetchin data for tv shows
+
+
+    const requestOptionsTv = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch('https://imdb-api.com/API/AdvancedSearch/k_mb5kczkx?title_type=tv_series,tv_episode,tv_miniseries&genres=animation&certificates=us:G', requestOptionsTv)
+    // show everything in console
+    .then(response => response.json())
+    .then(result => {
+      console.log(result);
+      // if the api reaches limit then show error message 
+      if (result.errorMessage) {
+        alert(result.errorMessage);
+      }
+      // if the api is working then show the results
+      else {
+            if (result.results[0].title === result.results[1].title) {
+              result.results.splice(1, 1);
+            }
+
+        this.tvShows = result.results;
+      }
+      
+        
+
+    })
+    .catch(error => console.log('error', error));
     },
-
-
-       
 
     methods: {
       
@@ -141,6 +227,8 @@ export default {
         this.showVideo = true;
         console.log ( "video box is open ");
       },
+
+      
       playMusic(music) {
         this.selectedMusic = music;
         this.showMusic = true;
@@ -154,6 +242,10 @@ export default {
         console.log ( "movies are loaded ");
       },
 
+      
+
+
+
       loadKidsMusic() {
         this.showVideo1 = false;
         this.showMusic = true;
@@ -166,8 +258,11 @@ export default {
         this.showVideo1 = false;
         this.showMusic = false;
         this.showTv = true;
+
         console.log ( "tv shows are loaded ");
       },
+
+
 
       closeVideo() {
         this.showVideo = false;
@@ -176,7 +271,15 @@ export default {
         console.log ( "video box is closed ");
 
 
+      },
+
+      playTvshow(tvshow) {
+        this.selectedTvshow = tvshow;
+        this.showVideo = true;
+        console.log ( "video box is open ");
       }
+
+
 
 
     }
