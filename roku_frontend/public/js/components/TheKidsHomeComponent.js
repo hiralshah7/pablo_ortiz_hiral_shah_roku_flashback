@@ -50,7 +50,6 @@ export default {
       <div class="main_video">
         <div class="video">
           <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
-        </div>
       </div>
 
     <div class="video_info">
@@ -64,6 +63,7 @@ export default {
               <p class="mainb"><h2 class="p1">Rating:</h2> {{ selectedMovie.imDbRating }}</p>
       </p>
     </div>
+  </div>
 </div>
 </section>
 
@@ -94,8 +94,8 @@ export default {
     <div class="tvshows">
       <div class="movieskid">
           <ul class="moviekid">
-            <li v-for="tvshow in tvshows" :key="tvshow.id">
-              <img class="layer" :src="tvshow.image" :alt="tvshow.title"  @click="playVideo(movie)">
+              <li v-for="tvshow in tvshows" :key="tvshow.id">             
+              <img class="layer" :src="tvshow.image" :alt="tvshow.title"  @click="playVideo2(movie)">
                 <h3 class="titlem">{{ tvshow.title }}</h3>
 
 
@@ -104,7 +104,7 @@ export default {
                       <p class="block">{{ tvshow.title }}</p>
                       <p class="block">Year: {{ tvshow.description }}</p>
                       <p class="block">Rating: {{ tvshow.imDbRating }}</p>
-                      <ion-icon name="play-circle-outline"  @click="playVideo(movie)"></ion-icon>
+                      <ion-icon name="play-circle-outline"  @click="playVideo2(movie)"></ion-icon>
                     </div>
               </li>
           </ul>
@@ -112,16 +112,15 @@ export default {
 
         <!-- open the video when the user clicks on the image -->
 
-                  <div class="video_container" v-show="showVideo">
+                  <div class="video_container" v-show="showVideo2">
                       <div class="heading_video">
                     <h2 class="movtit">{{ selectedTvshow.title }}</h2>
-                        <ion-icon name="close-circle-outline" @click="closeVideo"></ion-icon>
+                        <ion-icon name="close-circle-outline" @click="closeVideo2"></ion-icon>
                 </div>
                 <div class="main_video">
                   <div class="video">
                     <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
-                </div>
-            </div>
+                 </div>
               <div class="video_info">
                 <p class="mainb"><h2 class="p1">Year:</h2> {{ selectedTvshow.description }}</p>
                 <p class="mainb"><h2 class="p1">Runtime:</h2> {{ selectedTvshow.runtimeStr }}</p>
@@ -131,6 +130,7 @@ export default {
                 <p class="mainb"><h2 class="p1">Rating:</h2> {{ selectedTvshow.imDbRating }}</p>
               </div>
             </div>
+          </div>
   </section>
 
     `,
@@ -149,6 +149,17 @@ export default {
         shows: [],
         selectedShow: {},
         tvShows: [],
+        tracks: [],
+        selectedTrack: {},
+        tvshows: [],
+        selectedTvshow: {},
+        // movie
+        movie: {},
+        // video2
+        showVideo2: false,
+
+        // use api to get the data for the movies
+        
 
 
       };
@@ -200,18 +211,7 @@ export default {
     .then(response => response.json())
     .then(result => {
       console.log(result);
-      // if the api reaches limit then show error message 
-      if (result.errorMessage) {
-        alert(result.errorMessage);
-      }
-      // if the api is working then show the results
-      else {
-            if (result.results[0].title === result.results[1].title) {
-              result.results.splice(1, 1);
-            }
-
-        this.tvShows = result.results;
-      }
+      this.tvshows = result['results'];
       
         
 
@@ -225,6 +225,7 @@ export default {
       playVideo(movie) {
         this.selectedMovie = movie;
         this.showVideo = true;
+        
         console.log ( "video box is open ");
       },
 
@@ -241,6 +242,24 @@ export default {
         this.showTv = false;
         console.log ( "movies are loaded ");
       },
+
+      // play video2 for tv shows
+      playVideo2(movie) {
+        this.selectedTvshow = movie;
+
+        this.showVideo2 = true;
+        console.log ( "video box is open for tv shows ");
+      },
+
+      closeVideo2() {
+        this.showVideo2 = false;
+        // pause the video when the user closes the video box
+
+        console.log ( "video box is closed ");
+
+      },
+
+
 
       
 
@@ -276,7 +295,7 @@ export default {
       playTvshow(tvshow) {
         this.selectedTvshow = tvshow;
         this.showVideo = true;
-        console.log ( "video box is open ");
+        console.log ( "video box is open for tv shows ");
       }
 
 
