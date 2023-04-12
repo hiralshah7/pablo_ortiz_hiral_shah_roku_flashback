@@ -95,16 +95,16 @@ export default {
       <div class="movieskid">
           <ul class="moviekid">
               <li v-for="tvshow in tvshows" :key="tvshow.id">             
-              <img class="layer" :src="tvshow.image" :alt="tvshow.title"  @click="playVideo2(movie)">
+              <img class="layer" :src="tvshow.image" :alt="tvshow.title"  @click="playVideo2(tvshow)">
                 <h3 class="titlem">{{ tvshow.title }}</h3>
 
 
                 <!-- on hover show the year and rating -->
-                    <div class="movie_info" @click="playVideo(movie)">
+                    <div class="movie_info" @click="playVideo(tvshow)">
                       <p class="block">{{ tvshow.title }}</p>
                       <p class="block">Year: {{ tvshow.description }}</p>
                       <p class="block">Rating: {{ tvshow.imDbRating }}</p>
-                      <ion-icon name="play-circle-outline"  @click="playVideo2(movie)"></ion-icon>
+                      <ion-icon name="play-circle-outline"  @click="playVideo2(tvshow)"></ion-icon>
                     </div>
               </li>
           </ul>
@@ -180,14 +180,20 @@ export default {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '6325459dcfmsh01df99951fe2399p15d8ccjsndfd3ff8f51b2',
-        'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
+      'X-RapidAPI-Key': '49deacfae9mshd388bca4199684fp190d57jsn9509a2f8f0f3',
+		'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
       }
     };
 
     fetch('https://spotify-scraper.p.rapidapi.com/v1/search?term=kids&type=track', options)
       .then(response => response.json())
       .then(data => {
+        // if api limit is reached then show error message
+        if (data.error) {
+          console.error(data.error);
+          return;
+        }
+
         this.tracks = data.tracks.items.slice(0, 100);
       })
       .catch(err => console.error(err));
@@ -268,6 +274,8 @@ export default {
 
         console.log ( "music is loaded ");
       },
+
+      // load
 
       loadKidsTv() {
         this.showVideo1 = false;
