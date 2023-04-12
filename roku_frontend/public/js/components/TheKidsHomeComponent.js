@@ -148,17 +148,13 @@ export default {
         track: {},
         shows: [],
         selectedShow: {},
-        tvShows: [],
+        tvShows:  [],
         tracks: [],
         selectedTrack: {},
         tvshows: [],
         selectedTvshow: {},
-        // movie
         movie: {},
-        // video2
         showVideo2: false,
-
-        // use api to get the data for the movies
         
 
 
@@ -294,6 +290,7 @@ export default {
 
       playTvshow(tvshow) {
         this.selectedTvshow = tvshow;
+
         this.showVideo = true;
         console.log ( "video box is open for tv shows ");
       }
