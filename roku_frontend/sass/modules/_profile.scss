@@ -1,0 +1,129 @@
+
+.bg-info {
+    background-color: #ffffff !important;
+    // make it perfect circle
+    width: 200px;
+    height: 200px;
+    font-size: 20px;
+    text-align: center;
+     // drop shadow
+     box-shadow: 0 0 0.45rem #000000;
+
+    // on hover 
+    &:hover {
+        background-color: #E6B600 !important;
+        // zoom in slowly 
+        transition: all 0.2s ease-in-out;
+        // zoom in on hover
+        transform: scale(1.1);
+        color: #000000;
+        cursor: pointer;
+    }
+}
+.profileLock {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+    text-align: center;
+
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-bottom: 10px;
+   
+}
+
+.pop1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+    text-transform: uppercase;
+}
+.users-container {
+    display: flex;
+    font-family: var(--font2);
+    flex-direction: column;
+    // centre
+    justify-content: center;
+    align-items: center;
+    // gap
+    gap: 40px;
+    text-align: center;
+    background-color: #BF81E3;
+    padding: 20px;
+    height: 70vh;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    // reducing the width of the card and still keeping it in centre
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    // making it centre from top
+    margin-top: 60px;
+    // drop shadow
+    box-shadow: 0 0 0.75rem #000000;
+
+}
+
+
+.user {
+
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:#ffffff;
+    text-transform: uppercase;
+
+}
+
+
+// mobile view
+
+@media screen and (max-width: 768px) {
+    .users-container {
+        width: 96%;
+        margin-top: 90px;
+    }
+
+    .user {
+        font-size: 20px;
+    }
+
+    .card-body {
+        font-size: 16px;
+    }
+
+    .pop1 {
+        font-size: 18px;
+    }
+
+    .bg-info {
+        width: 150px;
+        height: 150px;
+        font-size: 16px;
+    }
+
+    .profileLock {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 40px;
+    }
+
+    
+}
+
+// tablet view
+
+@media screen and (max-width: 1024px) {
+   
+        .users-container {
+            width: 96%;
+            margin-top: 90px;
+    }
+}
+

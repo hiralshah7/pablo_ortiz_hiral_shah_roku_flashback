@@ -1,0 +1,40 @@
+.navbar-light{
+    background-color: #E6B600 !important;
+    font-size: 20px;
+
+
+}
+
+.buttons_ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 60px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    transition: all 0.2s ease-in-out;
+   
+}
+
+.rokulogo {
+    margin-left: 20px;
+}
+
+.buttons_ul ion-icon {
+    font-size: 60px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    transition: all 0.2s ease-in-out;
+   
+
+        // on hover
+        &:hover{
+            color: #BF81E3;
+            cursor: pointer;
+            // zoom in
+            transform: scale(1.2);
+            transition: all 0.2s ease-in-out;
+        }
+}

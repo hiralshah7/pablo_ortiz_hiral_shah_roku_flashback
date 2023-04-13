@@ -46,18 +46,6 @@ router.post("/login", (req, res) => {
         delete results[0].password;
         result.user = results[0];
       }
-
-      // results.forEach(user => {
-      //   // sanitize the data
-      //   delete user.password;
-      //   delete user.fname;
-      //   delete user.lname;
-
-      //   // if no avatar, set a default
-      //   if(!user.avatar) {
-      //     user.avatar = "temp_avatar.jpg";
-      //   }
-      // })
    
       // Don't use the connection here, it has been returned to the pool.
       res.json(result);
@@ -100,6 +88,8 @@ router.get('/users', (req, res) => {
     });
     // -----------------------------------------------------------------------------------------
 })
+
+
 
 router.get('/users/:user', (req, res) => {
     console.log(req.params.user);

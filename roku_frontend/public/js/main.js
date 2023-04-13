@@ -28,8 +28,8 @@ const router = VueRouter.createRouter({
     },
     { 
         path: '/kids', // the location bar URL
-        name: `kidsHome`, // the name of the route (for programmic navigation)
-        component: KidsHome //the component to render
+        name: ` KidsHome`, // the name of the route (for programmic navigation)
+        component:  KidsHome //the component to render
     }
   ] // short for `routes: routes`
 })

@@ -1,0 +1,478 @@
+            .main_entertainment {
+            // three buttons
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+            font-size: 60px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            }
+
+            .welcome h2{
+                font-size: 32px;
+                font-weight: 600;
+                color:#A32479;
+                // stroke to text
+                text-shadow: 0 0 20px #ffffff;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                font-family: var(--font1);
+                text-align: center;
+
+                
+            }
+
+
+            .btn_entertainment {
+            display: flex;
+            // align the icon and text in the centre
+            justify-content: center;
+            align-items: center;
+            // gap between icon and text
+            gap: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color:  #A32479;
+            color: #ffffff;
+            font-size: 20px;
+            width: 300px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-transform: uppercase;
+            border: 1px solid #ffffff;
+            font-family: var(--font1);
+
+            // on hover
+            &:hover{
+                background-color: #E6B600;
+                color: #000000;
+                // zoom in
+                transform: scale(1.2);
+                transition: all 0.2s ease-in-out;
+                border: 1px solid #ffffff;
+            }
+
+            }
+
+            .btn_entertainment ion-icon {
+
+            font-size: 40px;
+            font-weight: 600;
+            color: #ffffff;
+            transition: all 0.2s ease-in-out;
+            // on hover
+            &:hover{
+                color: #000000;
+                cursor: pointer;
+                // zoom in
+                transform: scale(1.2);
+                transition: all 0.2s ease-in-out;
+            }
+
+            }
+
+
+            .movie_container {
+            // grid of movies 5 
+            display: flex;
+            flex-direction: row;
+            // round the corners
+            border-radius: 20px;
+            // drop shadow
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+            grid-gap: 30px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            background-color: #BF81E3;
+            }
+
+            .movieskid img {
+            width: 100%;
+            height: 85%;
+            border-radius: 10px;
+            cursor: pointer;
+
+            }
+
+            .moviekid {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-gap: 40px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+
+            // round the corners
+            border-radius: 20px;
+
+
+
+
+            }
+
+            .titlem {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-family: var(--font1);
+            }
+
+
+            li {
+            position: relative;
+            }
+
+            .movie_info {
+            position: absolute;
+            display: flex;
+            // align the icon and text in the centre
+            justify-content: center;
+            align-items: center;
+            // gap between icon and text
+            font-size: 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            flex-direction: column;
+            top: 0;
+            font-family: var(--font1);
+            left: 0;
+            background-color: orange;
+            color: #000000;
+            padding: 10px;
+            width: 100%;
+            height: 90%;
+            visibility: hidden;
+            opacity: 0;
+
+            }
+
+            .welcome {
+            font-size: 20px;
+            font-weight: 600;
+            color:  orange;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-family: var(--font1);
+            }
+
+            .block {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            }
+
+
+            // ionicon for the movie info
+
+            .movie_info ion-icon {
+                font-size: 40px;
+                font-weight: 600;
+                color: #ffffff;
+                transition: all 0.2s ease-in-out;
+                // on hover
+                &:hover{
+                    color: #000000;
+                    cursor: pointer;
+                    // zoom in
+                    transform: scale(1.2);
+                    transition: all 0.2s ease-in-out;
+                }
+
+            }
+
+            li:hover .movie_info {
+            visibility: visible;
+            opacity: 1;
+                // on hover
+                // zoom in
+                transform: scale(1.1);
+                transition: all 0.6s ease-in-out;
+                cursor: pointer;
+            }
+
+
+            .video_container {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                top: 72%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 100;
+                border-radius: 20px;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+                grid-gap: 30px;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 82%;
+                background-color: #bf81e3;
+                height: 92%;
+                backdrop-filter: blur(10px);
+                opacity: 1;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+                align-content: center; }
+
+            .heading_video {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                // one elemtn on the left and one on the right
+                align-items: center;
+                // gap between icon and text
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            // ionicon for the close button
+            .heading_video ion-icon {
+                font-size: 40px;
+                font-weight: 600;
+                color: #ffffff;
+                transition: all 0.2s ease-in-out;
+                // on hover
+                &:hover{
+                    color: #000000;
+                    cursor: pointer;
+                    // zoom in
+                    transform: scale(1.2);
+                    transition: all 0.2s ease-in-out;
+                }
+
+            }
+
+            .main_video {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 40px;
+                /* text-align: center; */
+                /* margin-top: 20px; */
+                /* margin-bottom: 20px; */
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                /* border-radius: 20px; */
+                justify-items: center;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+
+            }
+
+            .video_info {
+                display: flex;
+                flex-direction: column;
+                /* font-size: 9px; */
+                font-weight: 400;
+                width: 538px;
+                background-color: orange;
+                border-radius: 25px;
+                color: var(--color1);
+                font-family: var(--font2);
+                height: 416px;
+                text-align: left;
+                /* gap: 13px; */
+                line-height: 27px;
+                padding: 10px;
+                color: #fff;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+                
+                overflow-y: scroll;
+
+                &::-webkit-scrollbar {
+                    width: 0px;
+                    background: transparent; /* make scrollbar transparent */
+                }
+            }
+
+            .mainb {
+                font-size: 17px;
+                font-weight: 800;
+                width: 490px;
+            }
+
+
+
+            .movtit {
+                font-size: 29px;
+                font-weight: 600;
+                color: #A32479;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                font-family: var(--font1);
+            }
+
+          
+
+
+            .p1 {
+                color: #A32479;
+                font-size: 18px;
+            }
+
+
+// making it responsive
+
+
+// for mobile devices
+        
+    @media screen and (max-width: 768px) {
+
+        // three buttons
+            .main_entertainment {
+            // three buttons
+            display: column;
+            flex-direction: column;
+
+            }
+
+            .moviekid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+          
+            .main_video {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                align-content: center;
+                justify-items: center;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .mmm {
+                width: 300px;
+            }
+
+            .video_container {
+                position: absolute;
+    display: flex;
+    align-items: center;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* z-index: 100; */
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+    /* grid-gap: 30px; */
+    text-align: center;
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    width: 100%;
+    background-color: #bf81e3;
+    height: 100%;
+    backdrop-filter: blur(75px);
+    opacity: 1;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+    align-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+            }
+
+
+            .mainb {
+                font-size: 16px;
+                font-weight: 600;
+                width: 298px;
+            }
+
+
+            .video_info {
+                
+            display: flex;
+            flex-direction: column;
+            font-weight: 400;
+            width: 352px;
+            background-color: orange;
+            border-radius: 25px;
+            color: var(--color1);
+            font-family: var(--font2);
+            height: 547px;
+            text-align: left;
+            line-height: 27px;
+            padding: 10px;
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                background: transparent; /* make scrollbar transparent */
+            }
+
+        }
+
+    }
+
+
+
+    // for tablets and ipad pro 
+
+    @media screen and (max-width: 1024px) {
+
+        .main_entertainment {
+            // three buttons
+            display: column;
+            flex-direction: column;
+
+            }
+
+
+
+            .moviekid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+          
+            .main_video {
+                display: grid;
+                grid-template-rows: repeat(1, 1fr);
+                align-content: center;
+                justify-items: center;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .mmm {
+                width: 300px;
+            }
+
+            .video_container {
+                position: absolute;
+
+
+            }
+
+        }
+

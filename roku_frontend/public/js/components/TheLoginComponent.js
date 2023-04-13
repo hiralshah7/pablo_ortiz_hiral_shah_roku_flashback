@@ -2,34 +2,32 @@ export default {
     name: 'TheLoginComponent',
     template: 
         `<section class="container">
-        <div class="jumbotron">
-            <h1>Welcome to Flashblack!</h1>
-            <p class="lead">
-            Before revisiting your favourite movies, tv shows or music from yesteryear, please log in with a valid username and password.
-            </p>
+        <div class="jumbotron11">
+            <h1 class="loginh1">Welcome to Flashblack!</h1>
         </div>
 
         <section class="log-in">
-        <label class="sr-only" for="inlineFormInputName">Name</label>
-        <input ref="username" v-model="username" type="text" class="form-control" id="inlineFormInputName" placeholder="username" required>
+        <!-- username input -->
+        <label class="label1" for="inlineFormInputName">Username</label>
+        <input ref="username" v-model="username" type="text" class="form-control" id="inlineFormInputName" required>
 
-        <label class="sr-only" for="inlineFormPassword">Name</label>
-        <input ref="password" v-model="password" type="password" class="form-control" id="inlineFormPassword" placeholder="password" required>
+        <label   class="label1" for="inlineFormPassword">Password</label>
+        <input ref="password" v-model="password" type="password" class="form-control" id="inlineFormPassword"  required>
         </section>
 
-        <button
-        @click="tryLogin"
-            type="submit" 
-            class="btn btn-primary login-submit"
-        >Go!
-        </button>
+        <!-- login button -->
+        <div class="login-submit11">
+            <button
+            @click="tryLogin"
+                type="submit" 
+                class="btn btn-primary login-submit"
+            >Login
+            </button>
 
-        <button v-if="signup"
-            @click="trySignUp"
-            type="submit" 
-            class="btn btn-primary login-submit"
-        >Sign Up for Roku
-        </button>
+        <!-- sign up button -->
+            <button v-on:click="trySignUp" class="btn btn-primary login-submit">Sign Up</button>
+        </div>
+
     </section>
     `,
 
@@ -42,9 +40,12 @@ export default {
 
     methods: {
         trySignUp(){
-            debugger;
-        },
 
+            console.log('sign up button clicked');
+            debugger;
+
+
+           },
         tryLogin() {
             // debugger;
             // sanitize our inputs, make sure they're not empty ect "       "
@@ -71,12 +72,13 @@ export default {
             }
 
 
-
+            // for login, we need to send the user's credentials to the server
             fetch('/ums/login', {
                 method: "POST",
                 headers:{
                     'Accept': 'application/json, text/plain, */*',
                     'Content-type': 'application/json'
+
                 },
                 body: JSON.stringify(userData)
             })

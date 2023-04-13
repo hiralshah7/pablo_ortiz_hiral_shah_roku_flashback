@@ -1,0 +1,50 @@
+:root 
+    {
+        --color-primary: #BF81E3;
+        --color-secondary: #431E5F;
+        --color-tertiary: #F2F2F2;
+        --color-1 : #6E2996;
+        --color-2: #F39200;
+        --color-3: #D1F04D;
+        --color-4: #E6B600;
+        --color-5:#A32479;
+       
+        // font 
+        --font1 : 'Assistant', sans-serif;
+        --font2 : 'Lato', sans-serif;
+
+        // font-size
+        --font-size-1: 1.5rem;
+        --font-size-2: 1.2rem;
+        --font-size-3: 1.1rem;
+        --font-size-4: 1rem;
+        --font-size-5: 0.9rem;
+        --font-size-6: 0.8rem;
+
+
+        // font-weight
+        --font-weight-1: 100;
+        --font-weight-2: 200;
+        --font-weight-3: 300;
+        --font-weight-4: 400;
+        --font-weight-5: 500;
+        --font-weight-6: 600;
+        --font-weight-7: 700;
+
+        // font-style
+        --font-style-1: normal;
+        --font-style-2: italic;
+        --font-style-3: oblique;
+       
+
+
+
+
+
+    }
+
+    body {
+        background-image : url(../images/bgimage.jpg);
+    }
+
+   
