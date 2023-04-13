@@ -15,16 +15,22 @@ Welcome to the Roku Flashback app repository! This repository houses all the cod
 
 - Profile selection: Once logged in, users can select a profile.
 <br>
+
 - Permission levels: The app has different permission levels, allowing some users to access only the kids' profile and others to access the default profile.
 <br>
+
 - Kids mode: The app includes a kids mode.
 <br>
+
 - Responsiveness: The app is responsive and can be used on any device.
 <br>
+
 - Backend and frontend files: The app includes both backend and frontend files.
 <br>
+
 - Fetch API: The app uses the Fetch API to bring in data from the IMDB API.
 <br>
+
 - Rapid API: The app uses the Rapid API to bring in data from the Rapid API.
 <br>
 

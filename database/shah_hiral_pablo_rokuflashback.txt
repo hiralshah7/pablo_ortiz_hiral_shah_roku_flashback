@@ -1,0 +1,9 @@
+REPO: https://github.com/hiralshah7/pablo_ortiz_hiral_shah_roku_flashback
+Team : Hiral Shah | Pablo Ortiz
+
+Login Id/Pass: 
+		username: chandler 
+		password: spiderman 
+
+		chandler = kid's profile 
+		joey = Default Profile
