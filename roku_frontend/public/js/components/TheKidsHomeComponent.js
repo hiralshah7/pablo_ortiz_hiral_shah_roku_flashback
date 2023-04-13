@@ -1,17 +1,30 @@
 export default {
     name: 'TheKidsHomeComponent',
+    
 
     template: `
 
 
 <!-- movies for kids -->
 
+  <!-- welcome message -->
+  <div class="welcome">
+  <!--  welmoce to kids home page -->
+  <h2>Welcome to Kids Home Page</h2>
+</div>
+  
+
+
    <!--  creating three button one for music, one for movies and one for tv shows -->
    <!-- load the content of the button when the user clicks on it --> 
         <div class="main_entertainment">
+       
+
 
           <button class="btn_entertainment" @click="loadKidsMovies">
             <ion-icon name="film-outline"></ion-icon>Movies</button>
+
+
           
           <button class="btn_entertainment" @click="loadKidsMusic"> 
             <ion-icon name="musical-notes-outline"></ion-icon>Music</button>
@@ -119,7 +132,7 @@ export default {
                 </div>
                 <div class="main_video">
                   <div class="video">
-                    <video :src="'video/trailor1.mp4'" width="600" height="300" muted controls></video>
+                    <video :src="'video/trailor1.mp4'" width="600" height="300"class="mmm" muted controls></video>
                  </div>
               <div class="video_info">
                 <p class="mainb"><h2 class="p1">Year:</h2> {{ selectedTvshow.description }}</p>
@@ -181,7 +194,7 @@ export default {
       method: 'GET',
       headers: {
       'X-RapidAPI-Key': '49deacfae9mshd388bca4199684fp190d57jsn9509a2f8f0f3',
-		'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
+		  'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
       }
     };
 
@@ -219,7 +232,7 @@ export default {
 
     })
     .catch(error => console.log('error', error));
-    },
+     },
 
     methods: {
       

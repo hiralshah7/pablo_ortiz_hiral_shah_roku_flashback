@@ -4,7 +4,11 @@ export default {
     props: ['user'],
 
     template: `
-    <h1> The Default Home Component </h1>
+
+    <!-- welcome message -->
+    <div class="welcome">
+    <h2>Welcome to Default Home Page</h2>
+  </div>
     <!--  creating three button one for music, one for movies and one for tv shows -->
    <!-- load the content of the button when the user clicks on it --> 
         <div class="main_entertainment">

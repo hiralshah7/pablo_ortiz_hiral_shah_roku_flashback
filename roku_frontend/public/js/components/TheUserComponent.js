@@ -1,6 +1,9 @@
 export default {
     name: 'TheUserComponent',
 
+    // passing username and avatar from the parent component
+    
+
     props: ['user'],
 
     template: `
