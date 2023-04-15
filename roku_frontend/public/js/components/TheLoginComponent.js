@@ -40,12 +40,14 @@ export default {
 
     methods: {
         trySignUp(){
-
-            console.log('sign up button clicked');
             debugger;
 
 
            },
+
+        
+           
+
         tryLogin() {
             // debugger;
             // sanitize our inputs, make sure they're not empty ect "       "
